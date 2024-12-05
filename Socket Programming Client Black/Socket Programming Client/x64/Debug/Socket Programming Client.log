@@ -1,0 +1,4 @@
+﻿  Client.cpp
+C:\Users\이상혁\Desktop\문서\대학\2학년 2학기\컴퓨터네트워크\과제\Socket Programming Client\Socket Programming Client\Client.cpp(194,16): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\이상혁\Desktop\문서\대학\2학년 2학기\컴퓨터네트워크\과제\Socket Programming Client\Socket Programming Client\Client.cpp(194,18): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+  Socket Programming Client.vcxproj -> C:\Users\이상혁\Desktop\문서\대학\2학년 2학기\컴퓨터네트워크\과제\Socket Programming Client\x64\Debug\Socket Programming Client.exe
