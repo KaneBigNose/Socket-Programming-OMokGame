@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\\uC774\uC0C1\uD601\\Desktop\\\uBB38\uC11C\\\uB300\uD559\\2\uD559\uB144 2\uD559\uAE30\\\uCEF4\uD4E8\uD130\uB124\uD2B8\uC6CC\uD06C\\\uACFC\uC81C\\Socket Programming Server\\",
+  "WorkspaceRootPath": "C:\\Users\\\uC774\uC0C1\uD601\\Desktop\\\uBB38\uC11C\\\uB300\uD559\\2\uD559\uB144 2\uD559\uAE30\\\uCEF4\uD4E8\uD130\uB124\uD2B8\uC6CC\uD06C\\\uACFC\uC81C\\Socket-Programming-OMokGame\\Socket Programming Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2C138C55-9736-4404-9154-17F16F05D04E}|Socket Programming\\Socket Programming.vcxproj|C:\\Users\\\uC774\uC0C1\uD601\\Desktop\\\uBB38\uC11C\\\uB300\uD559\\2\uD559\uB144 2\uD559\uAE30\\\uCEF4\uD4E8\uD130\uB124\uD2B8\uC6CC\uD06C\\\uACFC\uC81C\\Socket Programming Server\\Socket Programming\\Server.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{2C138C55-9736-4404-9154-17F16F05D04E}|Socket Programming\\Socket Programming.vcxproj|C:\\Users\\\uC774\uC0C1\uD601\\Desktop\\\uBB38\uC11C\\\uB300\uD559\\2\uD559\uB144 2\uD559\uAE30\\\uCEF4\uD4E8\uD130\uB124\uD2B8\uC6CC\uD06C\\\uACFC\uC81C\\Socket-Programming-OMokGame\\Socket Programming Server\\Socket Programming\\Server.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{2C138C55-9736-4404-9154-17F16F05D04E}|Socket Programming\\Socket Programming.vcxproj|solutionrelative:Socket Programming\\Server.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -28,11 +28,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Server.cpp",
-              "DocumentMoniker": "C:\\Users\\\uC774\uC0C1\uD601\\Desktop\\\uBB38\uC11C\\\uB300\uD559\\2\uD559\uB144 2\uD559\uAE30\\\uCEF4\uD4E8\uD130\uB124\uD2B8\uC6CC\uD06C\\\uACFC\uC81C\\Socket Programming Server\\Socket Programming\\Server.cpp",
+              "DocumentMoniker": "C:\\Users\\\uC774\uC0C1\uD601\\Desktop\\\uBB38\uC11C\\\uB300\uD559\\2\uD559\uB144 2\uD559\uAE30\\\uCEF4\uD4E8\uD130\uB124\uD2B8\uC6CC\uD06C\\\uACFC\uC81C\\Socket-Programming-OMokGame\\Socket Programming Server\\Socket Programming\\Server.cpp",
               "RelativeDocumentMoniker": "Socket Programming\\Server.cpp",
-              "ToolTip": "C:\\Users\\\uC774\uC0C1\uD601\\Desktop\\\uBB38\uC11C\\\uB300\uD559\\2\uD559\uB144 2\uD559\uAE30\\\uCEF4\uD4E8\uD130\uB124\uD2B8\uC6CC\uD06C\\\uACFC\uC81C\\Socket Programming Server\\Socket Programming\\Server.cpp",
+              "ToolTip": "C:\\Users\\\uC774\uC0C1\uD601\\Desktop\\\uBB38\uC11C\\\uB300\uD559\\2\uD559\uB144 2\uD559\uAE30\\\uCEF4\uD4E8\uD130\uB124\uD2B8\uC6CC\uD06C\\\uACFC\uC81C\\Socket-Programming-OMokGame\\Socket Programming Server\\Socket Programming\\Server.cpp",
               "RelativeToolTip": "Socket Programming\\Server.cpp",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAADsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAEEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-02T09:08:43.409Z",
               "EditorCaption": ""
