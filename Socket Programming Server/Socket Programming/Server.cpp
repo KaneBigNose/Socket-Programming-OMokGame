@@ -19,6 +19,9 @@ int OMok_winner = 0;
 
 int OMokPan[OMOKPAN_SIZE][OMOKPAN_SIZE] = {};
 
+void ReceiveGameStateFromClient(SOCKET hSocket);
+void SendGameStateToClient(SOCKET hSocket);
+
 int main()
 {
 	WSADATA wsaData;

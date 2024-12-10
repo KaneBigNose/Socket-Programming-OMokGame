@@ -21,8 +21,6 @@ int OMok_winner = 0;
 
 int OMokPan[OMOKPAN_SIZE][OMOKPAN_SIZE] = {}; // 순서대로 가로 세로
 
-int offset[8][2] = { {-1,0},{-1,1},{0,1},{1,1},{1,0},{1,-1},{0,-1},{-1,-1} }; // 바둑알이 연결되어 있는지 체크하는 8방향
-
 HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
 DWORD mode;
 
@@ -55,7 +53,7 @@ int main()
 
 	while (true)
 	{
-		if (Player_turn != 1) // 상대방의 차례
+		if (Player_turn != 2) // 상대방의 차례
 		{
 			ReceiveGameStateFromClient(hSocket); // 서버로부터 데이터 수신
 			continue;
@@ -138,10 +136,10 @@ pair<int, int> InputXY() // 입력 받기
 				cout << "해당 위치에는 돌을 배치할 수 없습니다";
 				continue;
 			}
-			cout << "○";
-			OMokPan[current_pos.first][current_pos.second - 2] = 1; // 검은돌
+			cout << "●";
+			OMokPan[current_pos.first][current_pos.second - 2] = 1; // 흰돌
 			gotoxy(19, 22);
-			cout << "검은 돌을 배치하였습니다";
+			cout << "흰 돌을 배치하였습니다";
 			break;
 		}
 		else if (direction_input == 'w')
