@@ -21,8 +21,6 @@ int OMok_winner = 0;
 
 int OMokPan[OMOKPAN_SIZE][OMOKPAN_SIZE] = {}; // 순서대로 가로 세로
 
-int offset[8][2] = { {-1,0},{-1,1},{0,1},{1,1},{1,0},{1,-1},{0,-1},{-1,-1} }; // 바둑알이 연결되어 있는지 체크하는 8방향
-
 HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
 DWORD mode;
 
