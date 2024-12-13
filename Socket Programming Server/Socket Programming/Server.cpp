@@ -86,19 +86,17 @@ int main()
 			break;
 		}
 
-		if (Player_turn == 1) // 차례에 따라 정보를 받음
+		if (Player_turn == 1)
 		{
 			ReceiveGameStateFromClient(clientSockets[0]);
 		}
-		else if (Player_turn == 2)
+		else
 		{
 			ReceiveGameStateFromClient(clientSockets[1]);
 		}
 
-		for (int i = 0; i < connectedClients; i++) // 게임 상태 각 클라이언트에게 전달
-		{
-			SendGameStateToClient(clientSockets[i]);
-		}
+		SendGameStateToClient(clientSockets[0]);
+		SendGameStateToClient(clientSockets[1]);
 	}
 
 	// 소켓 닫기
@@ -112,13 +110,13 @@ int main()
 
 void ReceiveGameStateFromClient(SOCKET hSocket) // 클라이언트로부터 데이터 수신
 {
-	char buffer[2048];  // 최대 수신 크기 설정
+	char buffer[4096];  // 최대 수신 크기 설정
 	int bytesReceived = recv(hSocket, buffer, sizeof(buffer), 0); // 데이터 수신
 
 	if (bytesReceived == SOCKET_ERROR)
 	{
 		cout << "게임 상태 수신 실패" << endl;
-		return;
+		exit;
 	}
 
 	string gameState(buffer, bytesReceived); // 수신한 데이터 string으로 처리

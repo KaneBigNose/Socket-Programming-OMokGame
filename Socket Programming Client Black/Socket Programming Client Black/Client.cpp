@@ -12,7 +12,7 @@ using namespace std;
 
 #define PORT 7777 // 포트번호
 #define PACKET_SIZE 1024 // 패킷 사이즈
-#define SERVER_IP "221.220.33.242" // ip
+#define SERVER_IP "222.96.81.157" // ip
 
 #define OMOKPAN_SIZE 15
 
@@ -32,12 +32,13 @@ void gotoxy(int x, int y);
 void SendGameStateToServer(SOCKET hSocket);
 void ReceiveGameStateFromClient(SOCKET hSocket);
 
+SOCKET hSocket;
+
 int main()
 {
 	WSADATA wsaData;
 	WSAStartup(MAKEWORD(2, 2), &wsaData); // 생성
 
-	SOCKET hSocket;
 	hSocket = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP); // IPv4를 사용하고 연결지향형의 성격을 가진 TCP 소켓을 생성
 
 	SOCKADDR_IN tAddr = {}; // 소켓의 구성요소를 담을 구조체 생성
@@ -53,35 +54,41 @@ int main()
 
 	while (true)
 	{
-		if (Player_turn != 1) // 상대방의 차례
-		{
-			ReceiveGameStateFromClient(hSocket); // 서버로부터 데이터 수신
-			continue;
-		}
-		else
+		ReceiveGameStateFromClient(hSocket); // 서버로부터 데이터 수신
+		DrawOMokPan(); // 오목판 새로고침
+
+		if (Player_turn == 1)
 		{
 			gotoxy(10, 20);
 			cout << "당신의 차례입니다";
 		}
+		else
+		{
+			gotoxy(10, 20);
+			cout << "상대방이 수를 두고 있습니다" << endl;
+		}
 
-		pair<int, int> current_pos = InputXY(); // 입력 받기
+		pair<int, int> current_pos;
+
+		if (Player_turn == 1)
+		{
+			current_pos = InputXY(); // 입력 받기
+		}
 
 		if (CheckPlayerWin(current_pos.first, current_pos.second - 2, 1))
 		{
 			gotoxy(19, 22);
-			cout << "검은 돌 플레이어가 게임을 승리하였습니다!!!";
+			cout << "검은 돌 플레이어가 게임을 승리하였습니다!!!" << endl << endl;
 			OMok_winner = 1;
 			break;
 		}
 		else if (CheckPlayerWin(current_pos.first, current_pos.second - 2, 2))
 		{
 			gotoxy(19, 22);
-			cout << "흰 돌 플레이어가 게임을 승리하였습니다!!!";
+			cout << "흰 돌 플레이어가 게임을 승리하였습니다!!!" << endl << endl;
 			OMok_winner = 2;
 			break;
 		}
-
-		SendGameStateToServer(hSocket);
 	}
 	closesocket(hSocket);
 	WSACleanup(); // 소멸
@@ -140,6 +147,7 @@ pair<int, int> InputXY() // 입력 받기
 			OMokPan[current_pos.first][current_pos.second - 2] = 1; // 검은돌
 			gotoxy(19, 22);
 			cout << "검은 돌을 배치하였습니다";
+			SendGameStateToServer(hSocket);
 			break;
 		}
 		else if (direction_input == 'w')
@@ -256,19 +264,16 @@ void SendGameStateToServer(SOCKET hSocket) // 오목판 정보와 차례, 승자 정보를 서
 		}
 	}
 
-	gameState += to_string(Player_turn);  // 2번째 플레이어의 차례로 전달
+	gameState += to_string(2);  // 2번째 플레이어의 차례로 전달
 
 	gameState += " " + to_string(OMok_winner);  // 0은 계속 진행, 1은 검은 돌 승리, 2는 흰 돌 승리
 
 	int bytesSent = send(hSocket, gameState.c_str(), gameState.size(), 0); // 데이터 전송
-
-	gotoxy(10, 20);
-	cout << "상대방이 수를 두고 있습니다" << endl;
 }
 
 void ReceiveGameStateFromClient(SOCKET hSocket) // 서버로부터 데이터 수신
 {
-	char buffer[2048];  // 최대 수신 크기 설정
+	char buffer[4096];  // 최대 수신 크기 설정
 	int bytesReceived = recv(hSocket, buffer, sizeof(buffer), 0); // 데이터 수신
 
 	string gameState(buffer, bytesReceived); // 수신한 데이터 string으로 처리
