@@ -71,6 +71,9 @@ int main()
 		cout << "선수 입장 완료!!!" << endl;
 	}
 
+	SendGameStateToClient(clientSockets[0]);
+	SendGameStateToClient(clientSockets[1]);
+
 	while (true)
 	{
 		if (OMok_winner != 0) // 승자가 발생했을 경우 종료
@@ -89,14 +92,13 @@ int main()
 		if (Player_turn == 1)
 		{
 			ReceiveGameStateFromClient(clientSockets[0]);
+			SendGameStateToClient(clientSockets[1]);
 		}
 		else
 		{
 			ReceiveGameStateFromClient(clientSockets[1]);
+			SendGameStateToClient(clientSockets[0]);
 		}
-
-		SendGameStateToClient(clientSockets[0]);
-		SendGameStateToClient(clientSockets[1]);
 	}
 
 	// 소켓 닫기

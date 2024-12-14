@@ -66,14 +66,10 @@ int main()
 		{
 			gotoxy(10, 20);
 			cout << "상대방이 수를 두고 있습니다" << endl;
+			continue;
 		}
 
-		pair<int, int> current_pos;
-
-		if (Player_turn == 1)
-		{
-			current_pos = InputXY(); // 입력 받기
-		}
+		pair<int, int> current_pos = InputXY(); // 입력 받기
 
 		if (CheckPlayerWin(current_pos.first, current_pos.second - 2, 1))
 		{
@@ -264,7 +260,9 @@ void SendGameStateToServer(SOCKET hSocket) // 오목판 정보와 차례, 승자 정보를 서
 		}
 	}
 
-	gameState += to_string(2);  // 2번째 플레이어의 차례로 전달
+	Player_turn = 2; // 2번째 플레이어의 차례로 전달
+
+	gameState += to_string(Player_turn);  
 
 	gameState += " " + to_string(OMok_winner);  // 0은 계속 진행, 1은 검은 돌 승리, 2는 흰 돌 승리
 
